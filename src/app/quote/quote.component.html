@@ -1,0 +1,8 @@
+<h1>Add a quote</h1>
+<form (submit) = "addQuote()" name="myForm" #myForm = "ngForm">
+  <input type="text" name="quote" [(ngModel)]= "quote.des"  required min="4" ><br>
+  Author: <input type="text" name="author" [(ngModel)]="quote.author" required min="1" ><br>
+  <button type="submit" ng-disabled="false" *ngIf = "myForm.valid" >Add quote</button>
+</form>
+
+<app-quote-list [quotelist]="quotelist" (deleteQuote) = "dellist($event)"></app-quote-list>
